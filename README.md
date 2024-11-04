@@ -1,0 +1,1 @@
+A tool for creating subtitles from audio files using Whisper and something tbd to translate it.
