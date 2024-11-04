@@ -1,0 +1,2 @@
+class WhisperAudioTranscriber:
+    pass
