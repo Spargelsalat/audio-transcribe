@@ -10,7 +10,9 @@ class AudioTranscriber:
         self.filehandler = FileHandler()
 
     def input_processing(self, input_path):
-        pass
+        audio_files = self.filehandler.get_audio_files(input_path)
+        for file in audio_files:
+            self.process_file(file)
 
     def process_file(self, audio_file):
         pass
