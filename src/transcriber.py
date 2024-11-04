@@ -1,2 +1,6 @@
+import whisper
+
+
 class WhisperAudioTranscriber:
-    pass
+    def __init__(self):
+        pass

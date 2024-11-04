@@ -1,6 +1,6 @@
 from .transcriber import WhisperAudioTranscriber
-from .translator import Translator
+from .mariantranslator import MarianTranslator
 from .srt_formatter import SRTFormatter
 from .file_handler import FileHandler
 
-__all__ = ["WhisperAudioTranscriber", "Translator", "SRTFormatter", "FileHandler"]
+__all__ = ["WhisperAudioTranscriber", "MarianTranslator", "SRTFormatter", "FileHandler"]

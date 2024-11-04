@@ -1,11 +1,11 @@
 import sys
-from src import WhisperAudioTranscriber, Translator, SRTFormatter, FileHandler
+from src import WhisperAudioTranscriber, MarianTranslator, SRTFormatter, FileHandler
 
 
 class AudioTranscriber:
     def __init__(self, model_size):
         self.transcriber = WhisperAudioTranscriber(model_size)
-        self.translator = Translator()
+        self.mariantranslator = MarianTranslator()
         self.formatter = SRTFormatter()
         self.filehandler = FileHandler()
 
@@ -15,7 +15,8 @@ class AudioTranscriber:
             self.process_file(file)
 
     def process_file(self, audio_file):
-        pass
+        print(f"Processing {audio_file}")
+        result = self.transcriber.transcribe(audio_file)
 
 
 def main():
