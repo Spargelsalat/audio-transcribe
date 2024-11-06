@@ -24,9 +24,9 @@ class AudioTranscriber:
         file_handler (FileHandler): An instance of FileHandler to handle file operations.
     """
 
-    def __init__(self, model_size):
+    def __init__(self, model_size="medium", translate=False):
         self.transcriber = WhisperAudioTranscriber(model_size)
-        self.mariantranslator = MarianTranslator()
+        self.mariantranslator = MarianTranslator() if translate else None
         self.formatter = SRTFormatter()
         self.filehandler = FileHandler()
 
@@ -68,7 +68,11 @@ def main():
         sys.exit()
     input_path = sys.argv[1]
     model_size = sys.argv[2] if len(sys.argv) > 2 else "medium"
-    creator = AudioTranscriber(model_size)
+    translate_choice = (
+        input("Do you want to include English translations? (y/n): ").strip().lower()
+    )
+    translate = True if translate_choice == "y" else False
+    creator = AudioTranscriber(model_size, translate)
     creator.input_processing(input_path)
 
 
