@@ -52,6 +52,10 @@ class AudioTranscriber:
         print(f"Processing {audio_file}")
         result = self.transcriber.transcribe(audio_file)
         output_path = self.filehandler.get_output_path(audio_file)
+        self.formatter.create_srt(
+            result["segments"], output_path, self.mariantranslator
+        )
+        print(f"Created subtitles: {output_path}")
 
 
 def main():
